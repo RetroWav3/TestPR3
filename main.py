@@ -48,9 +48,9 @@ def setup_timer_test():
 
     return fulltime
 
-def check_time(a):
+def check_time(buff):
     actualtime = datetime.datetime.now()
-    if a == actualtime.strftime('%H%M'):
+    if buff == actualtime.strftime('%H%M'):
         return True
     else:
         return False
@@ -63,7 +63,20 @@ def check_time_test():
         return False
 
 def alarm():
-    pass
+    buff = setup_timer()
+
+    while check_time(buff) == False:
+        pass
+
+    if check_time(buff) == True:
+        mus = pyglet.resource.media('utrennijj-les.mp3')
+        mus.play()
+
+        while True:
+            print('Чтобы выключить будильник напишите "1". ')
+            stop = input()
+            if stop == '1':
+                return
 
 def alarm_test():
     a = setup_timer()
@@ -81,4 +94,4 @@ def alarm_test():
             if stop == '1':
                 return
 
-alarm_test()
+alarm()
