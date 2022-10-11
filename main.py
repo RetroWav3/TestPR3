@@ -48,7 +48,11 @@ def setup_timer_test():
     return fulltime
 
 def check_time():
-    pass
+    actualtime = datetime.datetime.now()
+    if setup_timer() == actualtime.strftime('%H%M'):
+        return True
+    else:
+        return False
 
 def check_time_test():
     actualtime = datetime.datetime.now()
@@ -57,4 +61,3 @@ def check_time_test():
     else:
         return False
 
-print(check_time_test())
