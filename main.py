@@ -2,7 +2,34 @@
 
 
 def setup_timer():
-    pass
+
+    print('Установите время пробуждения: ')
+
+    while True:
+        print('Часы: ')
+        hours = input()
+        if int(hours) <= 23 and int(hours) >= 0:
+            break
+        else:
+            continue
+
+    while True:
+        print('Минуты: ')
+        minutes = input()
+        if int(minutes) <= 59 and int(minutes) >= 0:
+            break
+        else:
+            continue
+
+    if int(hours) < 10:
+        hours = '0' + hours
+
+    if int(minutes) < 10:
+        minutes = '0' + minutes
+
+    fulltime = hours + minutes
+
+    return fulltime
 
 def setup_timer_test():
 
@@ -20,4 +47,4 @@ def setup_timer_test():
 
     return fulltime
 
-print(setup_timer_test())
+print(setup_timer())
