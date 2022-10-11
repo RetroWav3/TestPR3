@@ -1,5 +1,5 @@
 #Будильник
-
+import datetime
 
 def setup_timer():
 
@@ -47,4 +47,14 @@ def setup_timer_test():
 
     return fulltime
 
-print(setup_timer())
+def check_time():
+    pass
+
+def check_time_test():
+    actualtime = datetime.datetime.now()
+    if setup_timer() == actualtime.strftime('%H%M'):
+        return True
+    else:
+        return False
+
+print(check_time_test())
